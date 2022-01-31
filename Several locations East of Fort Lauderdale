@@ -1,0 +1,139 @@
+#SAMPLE FOR EACH AREA
+
+# Import Building Permit Analysis FOR THE AREA
+
+
+
+#Nurmi Isles
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType<- BuildingPermits_analysis_Numi %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType<- BuildingPermits_analysis_Numi %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+N<- ggplot(Workload_byType, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type in Nurmi Isles, Fort lauderdale")
+
+
+
+
+
+#Seven Isles Data
+
+
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType_Seven<- BuildingPermits_analysis_Seven %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType_Seven<- BuildingPermits_analysis_Seven %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+Seven_Isles<- ggplot(Workload_byType_Seven, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type in Seven Isles, Fort Lauderdale")
+
+
+
+
+#Las Olas Isles, Riviera Isles, Idlewyld
+
+
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType_LRI <- Building_Permits_analysis_L_R_I %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType_LRI<- Building_Permits_analysis_L_R_I %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+ggplot(Workload_byType_LRI, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type in Las Olas Isles, Riviera Ilses and Idlewyld, Fort Lauderdale")
+
+
+
+
+
+#South Victoria Park
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType_SouthVPark <- BuildingPermit_analysis_SouthVPark %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType_SouthVPark<- BuildingPermit_analysis_SouthVPark %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+ggplot(Workload_byType_SouthVPark, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type in South Victoria Park, Fort Lauderdale")
+
+
+
+
+
+#North Victoria Park
+
+
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType_NorthVPark <- BuildingPermits_analysis_NorthVPark %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType_NorthVPark<- BuildingPermits_analysis_NorthVPark %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+ggplot(Workload_byType_NorthVPark, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type in North Victoria Park, Fort Lauderdale")
+
+
+
