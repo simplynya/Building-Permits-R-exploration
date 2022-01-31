@@ -1,0 +1,82 @@
+# Imported Building Permit Analysis
+
+#I want to look at the different Types of work done
+
+#I will look at Electrical permits
+
+ElectPermits <- filter(BuildingPermits_analysis, Type == "Electrical")
+
+
+rm(Contractors_Workload)
+
+#I was able to see all the contractors in Electrical
+
+ElectPermits_COntractor <- select(ElectPermits, Status, Case_Number, Type,
+Submit_Date, Contractor_Name)
+
+
+#The amount submitted per date. 
+
+SubmitDates_Electric<- ElectPermits_COntractor %>%group_by(Submit_Date)%>%summarize(count = n()) %>% as.data.frame
+
+
+#I was able to see which contractors had the most work in this area
+
+Contractors_Workload<- ElectPermits_COntractor %>%group_by(Contractor_Name)%>%summarize(count = n()) %>% as.data.frame
+
+
+#Now I want to make a graph that looks at Electrical, number of contracts and the contractor
+
+Contractors_Workload_byElectric<- ElectPermits_COntractor %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+
+
+#Generally all Contractors in the area
+
+#Now I want to make a graph that looks at type of work, number of contracts and the contractor
+
+Contractors_Workload_byType<- BuildingPermits_analysis %>%group_by(Contractor_Name, Type)%>%summarize(count = n()) %>% as.data.frame
+
+#the graph
+
+
+
+#Data set to look at Number of the different types
+
+Workload_byType<- BuildingPermits_analysis %>%group_by(Type)%>%summarize(count = n()) %>% as.data.frame
+
+
+#Now to make a Histogram graph for the Work type and amount of works they got in that area.
+
+w<- ggplot(Workload_byType, aes(Type, count, fill = count)) + ylab("Amount of Work load") +
+  xlab("Type of Work") + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90)) +ggtitle("Amount of work per Type")
+
+
+
+
+
+#I WILL PAUSE HERE AND UTILIZE THE STRINGS ABOVE FOR NOW.
+
+#Want to find out submittal dates based on Type of work throught the years 2017- 2021
+
+
+
+#Here I am trying to isolate the year from the date.
+SubmitDates_byType$year <- format(as.Date(SubmitDates_byType$date, format="%d/%m/%Y"),"%Y")
+
+
+
+
+SubmitDates_byType<- select (BuildingPermits_analysis, Submit_Date, Type) %>% as.data.frame
+
+
+
+
+
+
+
+
+
